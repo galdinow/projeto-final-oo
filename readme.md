@@ -1,8 +1,3 @@
-# Meu Letterboxd Simplificado com Bottle
-
-Este é um projeto de aplicação web simplificada, inspirada no Letterboxd, desenvolvido utilizando o micro-framework **Bottle** em Python. Ele serve como um excelente ponto de partida para entender a Programação Orientada a Objetos (POO) e a arquitetura MVC (Model-View-Controller) em um contexto web.
-
----
 
 ## Primeiros Passos
 
