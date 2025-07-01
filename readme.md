@@ -38,5 +38,14 @@ Siga as instruções abaixo para configurar e executar o projeto em seu ambiente
 
 Com o ambiente virtual ativado, instale todas as bibliotecas necessárias para o projeto:
 
+
+
 ```bash
 pip install -r requirements.txt
+
+
+```
+### 3. Inicialize a aplicação
+```bash
+
+python main.py
