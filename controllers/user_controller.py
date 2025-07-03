@@ -1,20 +1,10 @@
 import json
 from models.user import User
-class UserController:
+from controllers.base_controller import BaseController
 
-    @staticmethod
-    def to_dict(user):
-        return {"id":user.user_id, "name": user.username, "email": user.email, "password": user.password}
+class UserController(BaseController):
     
-    @staticmethod
-    def create_json_file(filename):
-        json_list = []
-        with open(filename,mode="w") as file:
-            json.dump(json_list, file)
-        
-    
-
-    # talvez fazer um controle de erros depois
+    # talvez fazer um controle de erros depois e arrumar identacao
     @staticmethod
     def save_user(user):
         with open("teste", "r") as file:
@@ -23,3 +13,10 @@ class UserController:
             updated_json.append(user)
         with open("teste", "w") as file:
             json.dump(updated_json, file)
+
+    
+
+    # mudar esse metodo depois para 
+    @staticmethod
+    def to_dict(user):
+        return {"id":user.user_id, "name": user.username, "email": user.email, "password": user.password}
