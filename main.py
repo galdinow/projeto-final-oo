@@ -21,6 +21,8 @@ def cadastrar_filme():
     director = request.forms.get('director')
     img_url = request.forms.get('img_url')
 
+filme = Movie(id, title=title, description=description, director=director, img_url=img_url)
+
 
 # @route("/") 
 # def home():
