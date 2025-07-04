@@ -3,3 +3,5 @@ venv
 .vscode
 __pycache__/
 *.pyc
+data/movies.json
+data/users.json
