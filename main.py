@@ -34,6 +34,8 @@ def exibir_filme(id):
 
 
 
+
+
 # @route("/") 
 # def home():
 #     return template("home")
