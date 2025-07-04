@@ -19,9 +19,7 @@ def load_movies():
         return movie_list
 
 
-#fazer uma funcao que le os filmes salvos em json e implementar ela nessa funcao
-# nao testei ainda
-# acho q a funcao nao retornar nada nao faz muito sentido
+# mudar "deu errado " dps
 def get_movie_by_id(id):
     for filme in load_movies():
         if filme["id"] == id:
