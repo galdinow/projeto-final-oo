@@ -1,0 +1,1 @@
+#criar as mesmas funcoes do user manager aq
