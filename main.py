@@ -22,15 +22,16 @@ def cadastrar_filme():
     img_url = request.forms.get('img_url')
 
 filme = Movie(id, title=title, description=description, director=director, img_url=img_url)
-
+MovieController.adicionar_filme(filme)
 #depois adicionar
 #return redirect("/")
 
 @route('/filme/<id>')
 def exibir_filme(id):
-    filme_encontrado =MovieController.get_movie_by_id(id)
-    return template()
-
+    filme = MovieController.get_movie_by_id(id)
+    if filme:
+        return template()
+    return "Filme não encontrado"
 
 
 
