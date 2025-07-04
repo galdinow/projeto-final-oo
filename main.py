@@ -23,6 +23,16 @@ def cadastrar_filme():
 
 filme = Movie(id, title=title, description=description, director=director, img_url=img_url)
 
+#depois adicionar
+#return redirect("/")
+
+@route('/filme/<id>')
+def exibir_filme(id):
+    filme_encontrado =MovieController.get_movie_by_id(id)
+    return template()
+
+
+
 
 # @route("/") 
 # def home():
