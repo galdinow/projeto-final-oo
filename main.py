@@ -14,23 +14,26 @@ UserController.save_user(aluno_dict)
 
 
 
-@route('/cadastrar-filme,', method='POST')
+@route('/cadastrar-filme', method='POST')
 def cadastrar_filme():
     title = request.forms.get('title')
     description = request.forms.get('description')
     director = request.forms.get('director')
     img_url = request.forms.get('img_url')
 
-filme = Movie(id, title=title, description=description, director=director, img_url=img_url)
-MovieController.adicionar_filme(filme)
+
+
+    filme = Movie(id, title=title, description=description, director=director, img_url=img_url)
+
+    MovieController.adicionar_filme(filme)
 #depois adicionar
 #return redirect("/")
 
-@route('/filme/<id>')
+@route('/filme/<id:int>')
 def exibir_filme(id):
     filme = MovieController.get_movie_by_id(id)
     if filme:
-        return template()
+        return template('filme_detalhes', filme=filme)
     return "Filme não encontrado"
 
 
