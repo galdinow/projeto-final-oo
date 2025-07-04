@@ -3,11 +3,14 @@ from models.movie import Movie
 class MovieController:
 
     filmes = [] #depois trocar pra json
-        
+
     @staticmethod
     def adicionar_filme(movie):
         MovieController.filmes.append(movie)
 
+
+    #fazer uma funcao que le os filmes salvos em json e implementar ela nessa funcao
+    # tambem acho q esse metodo nao era pra estar aq
     @staticmethod
     def get_movie_by_id(id):
         for filme in MovieController.filmes:
