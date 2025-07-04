@@ -10,7 +10,7 @@ def save_user(user):
     with open("data/users.json", "w") as file:
         json.dump(updated_json, file, indent=4)
 
-
+# essa funcao nao tem nada a ver com user, temos que tirar ela daq
 def create_json_file(filename):
     json_list = []
     with open("data/" + filename,mode="w") as file:
