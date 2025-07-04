@@ -1,6 +1,6 @@
 import json
 
-# talvez fazer um controle de erros depois e ver com a ana se faz sentido isso existir
+# talvez fazer um controle de erros depois 
 
 def save_user(user):
     with open("data/users.json", "r") as file:
