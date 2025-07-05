@@ -10,7 +10,7 @@ from bottle import static_file
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
-    return static_file(filepath, root='static')
+    return static_file(filepath, root='./static')
 
 @route('/')
 def index():
@@ -49,7 +49,7 @@ def exibir_filme(id):
     return "Filme não encontrado"
 
 
-
+run(host='localhost', port=8080, debug=True, reloader=True)
 
 
 # @route("/") 
