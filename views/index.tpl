@@ -16,7 +16,7 @@
         <!-- SimpleLightbox plugin CSS-->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="/static/css/styles.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap" rel="stylesheet">
 
     </head>
@@ -56,7 +56,7 @@
     
     <div class="col-md-4">
       <div class="card" style="width: 100%;">
-        <img src="assets\img\howlc.jpg" class="card-img-top" alt="...">
+        <img src="\static\img\howlc.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">filme 1</h5>
           <p class="card-text">descrição do filme.</p>
@@ -67,7 +67,7 @@
 
     <div class="col-md-4">
       <div class="card" style="width: 100%;">
-        <img src="assets/img/ponyo.jpg" class="card-img-top" alt="...">
+        <img src="/static/img/ponyo.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">FIlme 2</h5>
           <p class="card-text">descrição do filme.</p>
@@ -78,7 +78,7 @@
 
     <div class="col-md-4">
       <div class="card" style="width: 100%;">
-        <img src="assets/img/myntotoro.jpg" class="card-img-top" alt="...">
+        <img src="/static/img/myntotoro.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">filme 3</h5>
           <p class="card-text">descrição do filme.</p>

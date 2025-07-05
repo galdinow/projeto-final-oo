@@ -2,11 +2,19 @@ from bottle import route, run, template, request, redirect
 from controllers.user_controller import *
 from models.user import User
 from models.movie import Movie
-from controllers.movie_controller import MovieController
 from data_managers.user_manager import save_user, create_json_file
 import random
 from data_managers.movie_manager import get_movie_by_id
 from data_managers.movie_manager import save_movie
+from bottle import static_file
+
+@route('/static/<filepath:path>')
+def server_static(filepath):
+    return static_file(filepath, root='static')
+
+@route('/')
+def index():
+    return template('index') 
 
 
 aluno = User("0", "djota", "dota@email", "123")
@@ -30,8 +38,8 @@ def cadastrar_filme():
     filme = Movie(id=id, title=title, description=description, director=director, img_url=img_url)
 
     save_movie(filme)
-#depois adicionar
-#return redirect("/")
+
+    return redirect("/")
 
 @route('/filme/<id:int>')
 def exibir_filme(id):
