@@ -5,6 +5,7 @@ from models.movie import Movie
 from controllers.movie_controller import MovieController
 from data_managers.user_manager import save_user, create_json_file
 import random
+from data_managers.movie_manager import get_movie_by_id
 
 
 aluno = User("0", "djota", "dota@email", "123")
@@ -33,7 +34,7 @@ def cadastrar_filme():
 
 @route('/filme/<id:int>')
 def exibir_filme(id):
-    filme = MovieController.get_movie_by_id(id)
+    filme = get_movie_by_id(id)
     if filme:
         return template('filme_detalhes', filme=filme)
     return "Filme não encontrado"
