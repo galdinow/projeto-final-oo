@@ -4,6 +4,7 @@ from models.user import User
 from models.movie import Movie
 from controllers.movie_controller import MovieController
 from data_managers.user_manager import save_user, create_json_file
+import random
 
 
 aluno = User("0", "djota", "dota@email", "123")
@@ -23,8 +24,8 @@ def cadastrar_filme():
     img_url = request.forms.get('img_url')
 
 
-
-    filme = Movie(id, title=title, description=description, director=director, img_url=img_url)
+    id = random.randint(1000, 9999)
+    filme = Movie(id=id, title=title, description=description, director=director, img_url=img_url)
 
     MovieController.adicionar_filme(filme)
 #depois adicionar
