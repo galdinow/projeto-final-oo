@@ -25,3 +25,17 @@ def get_movie_by_id(id):
         if filme["id"] == id:
             return print(filme["title"])
     return print("deu errado")
+
+
+def avaliar_filme(id, nota):
+    nota = int(nota)
+    filmes = load_movies()
+    for filme in filmes:
+        if filme["id"] == id:
+            if "avaliacoes" not in filme:
+                filme["avaliacoes"] = []
+            filme["avaliacoes"].append(nota)
+            break
+    with open("data/movies.json", "w") as file:
+        json.dump(filmes, file, indent=4)
+
