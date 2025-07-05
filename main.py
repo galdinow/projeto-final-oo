@@ -6,6 +6,7 @@ from controllers.movie_controller import MovieController
 from data_managers.user_manager import save_user, create_json_file
 import random
 from data_managers.movie_manager import get_movie_by_id
+from data_managers.movie_manager import save_movie
 
 
 aluno = User("0", "djota", "dota@email", "123")
@@ -28,7 +29,7 @@ def cadastrar_filme():
     id = random.randint(1000, 9999)
     filme = Movie(id=id, title=title, description=description, director=director, img_url=img_url)
 
-    MovieController.adicionar_filme(filme)
+    save_movie(filme)
 #depois adicionar
 #return redirect("/")
 
