@@ -23,3 +23,14 @@ class UserController:
         dict_user = user.to_dict()
         user_manager.save_user(dict_user)
         return redirect("/")
+    #ver se o nome faz sentido
+    def validating_user(self):
+        username = request.forms.get("username")
+        email = request.forms.get("email")
+        password = request.forms.get("password")
+        # dps ver como usar a id correta, esse metodo nao pode ta certo
+        user = User("1", username, email, password)
+        if (user_manager.procura_usuario(user)):
+            return True
+        else:
+            return False

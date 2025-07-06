@@ -12,7 +12,15 @@ from bottle import static_file
 # Quando tudo estiver funcionando:
 # organizar as rotas dentro das controllers
 # fazer autenticacao de usuario
-
+# separar o css de dentro dos templates
+# usar o base.tpl em todos os templates
+# ver o quao nescessario eh criar uma instancia do bottle
+# apagar os templates nao utilizados
+# padronizar o codigo em uma unica lingua
+# conferir se tudo esta onde deveria estar(base controller tbm)
+# fazer diagrama de classes
+# verificar os 4 pilares de oo
+# ver o quao viavel eh fazer um hash da senha
 @route('/static/<filepath:path>')
 def server_static(filepath):
     return static_file(filepath, root='./static')
@@ -54,6 +62,18 @@ def login():
 def saving_login():
     return user_controller.cadastro_usuario()
 
+
+@route("/logon", method="GET")
+def logon():
+    return template("logon")
+
+
+@route("/logon", method="post")
+def checking_logon():
+    if user_controller.validating_user():
+        return redirect("/")
+    #ver como faz pra aparecer a mensagem de erro
+    return template("logon")
 # pra q serve setup routing?
 
 
