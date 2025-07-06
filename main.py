@@ -5,8 +5,6 @@ import random
 from data_managers.movie_manager import get_movie_by_id
 from data_managers.movie_manager import save_movie
 from bottle import static_file
-from bottle_session import SessionPlugin
-
 
 # Quando tudo estiver funcionando:
 # organizar as rotas dentro das controllers
@@ -29,7 +27,12 @@ def server_static(filepath):
 def index():
     return template('index') 
 
-@app.route('/cadastrar-filme', method='POST')
+@app.route('/cadastrofilme', method='GET')
+def exibir_formulario_cadastro():
+    return template('cadastrofilme')
+
+
+@app.route('/cadastrofilme', method='POST')
 def cadastrar_filme():
     title = request.forms.get('title')
     description = request.forms.get('description')

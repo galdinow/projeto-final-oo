@@ -29,7 +29,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="/login">Entrar</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/cadastrar-filme">Cadastrar um Filme</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/cadastrofilme">Cadastrar um Filme</a></li>
                         <li class="nav-item"><a class="nav-link" href="perfil.tpl">Perfil</a></li>
                     </ul>
                 </div>

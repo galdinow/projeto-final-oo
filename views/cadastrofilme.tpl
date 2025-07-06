@@ -34,7 +34,7 @@
 <body class="" style="background-color: #1B2B30;">
     <div class="container mt-5">
         <h2 class="mb-4">Cadastrar Novo Filme</h2>
-        <form action="/cadastrar-filme" method="POST">
+        <form action="/cadastrofilme" method="POST">
             <div class="mb-3">
                 <label class="form-label">Título</label>
                 <input type="text" name="title" class="form-control" required>
