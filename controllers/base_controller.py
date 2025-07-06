@@ -1,4 +1,5 @@
-# import json
-# from pathlib import Path
-# class BaseController:
-    
+import json
+from pathlib import Path
+class BaseController:
+    def __init__(self):
+        pass
