@@ -45,11 +45,11 @@ def cadastrar_filme():
 
     return redirect("/")
 
-@app.route('/filme/<id:int>')
+@app.route('/movie/<id:int>')
 def exibir_filme(id):
     filme = get_movie_by_id(id)
     if filme:
-        return template('filme_detalhes', filme=filme)
+        return template('movie', filme=filme)
     return "Filme não encontrado"
 
 

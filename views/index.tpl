@@ -29,7 +29,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="/login">Entrar</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/cadastrofilme">Cadastrar um Filme</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/cadastrar-filme">Cadastrar um Filme</a></li>
                         <li class="nav-item"><a class="nav-link" href="perfil.tpl">Perfil</a></li>
                     </ul>
                 </div>
@@ -60,7 +60,7 @@
         <div class="card-body">
           <h5 class="card-title">filme 1</h5>
           <p class="card-text">descrição do filme.</p>
-          <a href="#" class="btn btn-primary">Ver mais</a>
+          <a href="/movie" class="btn btn-primary">Ver mais</a>
         </div>
       </div>
     </div>
@@ -71,7 +71,7 @@
         <div class="card-body">
           <h5 class="card-title">FIlme 2</h5>
           <p class="card-text">descrição do filme.</p>
-          <a href="#" class="btn btn-primary">Ver mais</a>
+          <a href="/movie" class="btn btn-primary">Ver mais</a>
         </div>
       </div>
     </div>
@@ -82,7 +82,7 @@
         <div class="card-body">
           <h5 class="card-title">filme 3</h5>
           <p class="card-text">descrição do filme.</p>
-          <a href="#" class="btn btn-primary">Ver mais</a>
+          <a href="/movie" class="btn btn-primary">Ver mais</a>
         </div>
       </div>
     </div>
