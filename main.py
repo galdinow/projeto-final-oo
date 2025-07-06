@@ -27,11 +27,14 @@ save_user(aluno_dict)
 def login():
     return template('login')
 
+@route('/cadastrofilme', method='GET')
+def exibir_formulario():
+    return template('cadastrofilme')
 
 
 
 
-@route('/cadastrar-filme', method='POST')
+@route('/cadastrofilme', method='POST')
 def cadastrar_filme():
     title = request.forms.get('title')
     description = request.forms.get('description')
