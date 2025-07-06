@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
-</head>
-<body>
+% rebase("base.tpl", title="login")
+
 <h1>Usuario novo?</h1>
 
 <form action="/login" method="post">
@@ -28,5 +22,6 @@
         <input type="submit">
     </div>
 </form>
-</body>
-</html>
+
+<p>Ja possui uma conta?</p>
+<a href="/logon">Entrar</a>
