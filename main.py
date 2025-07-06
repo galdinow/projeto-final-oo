@@ -23,6 +23,11 @@ create_json_file("teste")
 aluno_dict = aluno.to_dict()
 save_user(aluno_dict)
 
+@route('/login')
+def login():
+    return template('login')
+
+
 
 
 
