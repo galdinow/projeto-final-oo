@@ -11,13 +11,15 @@ class UserController:
         pass
     
 # ver dps se as rotas na verdade ficam aq
-    @route("/cadastro-usuario", method="POST")
-    def cadastro_usuario():
+    
+    def cadastro_usuario(self):
         username = request.forms.get("username")
-        email = request.form.get("email")
-        password = request.form.get("password")
-        # acho q tem um jeito melhor de fazer isso
+        email = request.forms.get("email")
+        password = request.forms.get("password")
+        #tem um jeito melhor de fazer isso
         id = random.randint(1000, 9999)
 
         user = User(id, username, email, password)
-        user_manager.save_user(user)
+        dict_user = user.to_dict()
+        user_manager.save_user(dict_user)
+        return redirect("/")

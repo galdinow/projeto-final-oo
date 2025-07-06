@@ -1,5 +1,5 @@
 from bottle import route, run, template, request, redirect
-from controllers.user_controller import *
+from controllers.user_controller import UserController
 from models.user import User
 from models.movie import Movie
 from data_managers.user_manager import save_user, create_json_file
@@ -7,6 +7,11 @@ import random
 from data_managers.movie_manager import get_movie_by_id
 from data_managers.movie_manager import save_movie
 from bottle import static_file
+
+
+# Quando tudo estiver funcionando:
+# organizar as rotas dentro das controllers
+# fazer autenticacao de usuario
 
 @route('/static/<filepath:path>')
 def server_static(filepath):
@@ -16,25 +21,7 @@ def server_static(filepath):
 def index():
     return template('index') 
 
-
-aluno = User("0", "djota", "dota@email", "123")
-create_json_file("teste")
-#fazer ela ir para o filepath certo(diretorio data)
-aluno_dict = aluno.to_dict()
-save_user(aluno_dict)
-
-@route('/login')
-def login():
-    return template('login')
-
-@route('/cadastrofilme', method='GET')
-def exibir_formulario():
-    return template('cadastrofilme')
-
-
-
-
-@route('/cadastrofilme', method='POST')
+@route('/cadastrar-filme', method='POST')
 def cadastrar_filme():
     title = request.forms.get('title')
     description = request.forms.get('description')
@@ -57,11 +44,17 @@ def exibir_filme(id):
     return "Filme não encontrado"
 
 
+user_controller = UserController()
+#talvez mudar o nome dps
+@route("/login", method="GET")
+def login():
+    return template("login")
+
+@route("/login", method="POST")
+def saving_login():
+    return user_controller.cadastro_usuario()
+
+# pra q serve setup routing?
+
+
 run(host='localhost', port=8080, debug=True, reloader=True)
-
-
-# @route("/") 
-# def home():
-#     return template("home")
-
-# run(debug=True,reloader=True,)
