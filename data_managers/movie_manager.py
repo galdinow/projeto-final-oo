@@ -23,7 +23,7 @@ def load_movies():
 def get_movie_by_id(id):
     for filme in load_movies():
         if filme["id"] == id:
-            return print(filme["title"])
+            return filme
     return print("deu errado")
 
 
