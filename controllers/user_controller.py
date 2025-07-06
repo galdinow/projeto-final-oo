@@ -3,7 +3,7 @@ import random
 from models.user import User
 from controllers.base_controller import BaseController
 # ver se eu uso tudo isso msm dps
-from bottle import route, run, template, request, redirect
+from bottle import route, run, template, request, redirect, Bottle
 from data_managers import user_manager
 
 class UserController:
@@ -11,8 +11,11 @@ class UserController:
         pass
     
 # ver dps se as rotas na verdade ficam aq
-    
-    def cadastro_usuario(self):
+    # def setup_routes(self, app):
+    #     app.route("/login", method="GET")
+
+
+    def process_user(self):
         username = request.forms.get("username")
         email = request.forms.get("email")
         password = request.forms.get("password")

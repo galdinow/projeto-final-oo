@@ -1,12 +1,11 @@
-from bottle import route, run, template, request, redirect
+from bottle import route, run, template, request, redirect, Bottle
 from controllers.user_controller import UserController
-from models.user import User
 from models.movie import Movie
-from data_managers.user_manager import save_user, create_json_file
 import random
 from data_managers.movie_manager import get_movie_by_id
 from data_managers.movie_manager import save_movie
 from bottle import static_file
+from bottle_session import SessionPlugin
 
 
 # Quando tudo estiver funcionando:
@@ -21,15 +20,16 @@ from bottle import static_file
 # fazer diagrama de classes
 # verificar os 4 pilares de oo
 # ver o quao viavel eh fazer um hash da senha
-@route('/static/<filepath:path>')
+app = Bottle()
+@app.route('/static/<filepath:path>')
 def server_static(filepath):
     return static_file(filepath, root='./static')
 
-@route('/')
+@app.route('/')
 def index():
     return template('index') 
 
-@route('/cadastrar-filme', method='POST')
+@app.route('/cadastrar-filme', method='POST')
 def cadastrar_filme():
     title = request.forms.get('title')
     description = request.forms.get('description')
@@ -39,12 +39,13 @@ def cadastrar_filme():
 
     id = random.randint(1000, 9999)
     filme = Movie(id=id, title=title, description=description, director=director, img_url=img_url)
-
-    save_movie(filme)
+    # passar essa logica para dentro do save_movie/save_user
+    filme_dict = filme
+    save_movie(filme_dict)
 
     return redirect("/")
 
-@route('/filme/<id:int>')
+@app.route('/filme/<id:int>')
 def exibir_filme(id):
     filme = get_movie_by_id(id)
     if filme:
@@ -54,21 +55,21 @@ def exibir_filme(id):
 
 user_controller = UserController()
 #talvez mudar o nome dps
-@route("/login", method="GET")
+@app.route("/login", method="GET")
 def login():
     return template("login")
 
-@route("/login", method="POST")
+@app.route("/login", method="POST")
 def saving_login():
-    return user_controller.cadastro_usuario()
+    return user_controller.process()
 
 
-@route("/logon", method="GET")
+@app.route("/logon", method="GET")
 def logon():
     return template("logon")
 
 
-@route("/logon", method="post")
+@app.route("/logon", method="post")
 def checking_logon():
     if user_controller.validating_user():
         return redirect("/")
@@ -77,4 +78,4 @@ def checking_logon():
 # pra q serve setup routing?
 
 
-run(host='localhost', port=8080, debug=True, reloader=True)
+run(host='localhost', port=8080, debug=True, reloader=True, app=app)
