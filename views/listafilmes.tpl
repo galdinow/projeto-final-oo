@@ -5,6 +5,7 @@
     <title>Todos os Filmes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap" rel="stylesheet">
+    
     <style>
         body {
             background-color: #1B2B30;

@@ -59,10 +59,25 @@ def listar_filmes():
 @app.route('/movie/<id:int>')
 def exibir_filme(id):
     filme = get_movie_by_id(id)
-    if filme:
-        return template('movie', filme=filme)
-    return "Filme não encontrado"
+    if not filme:
+        return "Filme não encontrado"
 
+    # --- INÍCIO DA CORREÇÃO ---
+    # Verifica se o filme tem avaliações e se a lista não está vazia
+    if 'avaliacoes' in filme and filme['avaliacoes']:
+        soma_notas = sum(filme['avaliacoes'])
+        num_avaliacoes = len(filme['avaliacoes'])
+        # Adiciona os resultados calculados ao dicionário 'filme'
+        filme['media_avaliacoes'] = f"{soma_notas / num_avaliacoes:.1f}"
+        filme['num_avaliacoes'] = num_avaliacoes
+    else:
+        # Adiciona valores padrão se não houver avaliações
+        filme['media_avaliacoes'] = None
+        filme['num_avaliacoes'] = 0
+    # --- FIM DA CORREÇÃO ---
+
+    # Agora o template 'movie' recebe o dicionário 'filme' já com os novos dados
+    return template('movie', filme=filme)
 
 user_controller = UserController()
 #talvez mudar o nome dps
