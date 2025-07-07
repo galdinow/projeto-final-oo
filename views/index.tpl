@@ -42,7 +42,7 @@
             <div class="container px-4 px-lg-5 h-100">
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
-                        <h1 class="text-white font-weight-bold">Nome do Site</h1>
+                        <h1 class="text-white font-weight-bold">CineView</h1>
                         <hr class="divider" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
@@ -95,7 +95,7 @@
         
         <section class="page-section" id="serviços">
             <div class="container px-4 px-lg-5">
-                <h2 class="text-center mt-0">At Your Service</h2>
+                <h2 class="text-center mt-0">Ao Seu Serviço</h2>
                 <hr class="divider" />
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-lg-3 col-md-6 text-center">
