@@ -47,7 +47,7 @@
                     </div>
                     <div class="col-lg-8 align-self-baseline">
                         <p class="text-white-75 mb-5">Um espaço para amantes do cinema registrarem o que assistiram, recomendarem filmes e trocarem experiências.</p>
-                        <a class="btn btn-primary btn-xl" href="cadastrouser.tpl">Cadastre-se!</a>
+                        <a class="btn btn-primary btn-xl" href="/login">Cadastre-se!</a>
                     </div>
                 </div>
             </div>
