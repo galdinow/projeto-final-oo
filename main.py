@@ -21,38 +21,9 @@ def server_static(filepath):
 def index():
     return template('index') 
 
-@app.route('/cadastrofilme', method='GET')
-def exibir_formulario_cadastro():
-    return template('cadastrofilme')
+movie_controller.setup_routes(app)
 
-
-@app.route('/cadastrofilme', method='POST')
-def cadastrar_filme():
-    return movie_controller.process_movie()
-
-@app.route('/listafilmes')
-def listar_filmes():
-    filmes = load_movies() 
-    return template('listafilmes', filmes=filmes)
-
-
-@app.route('/movie/<id:int>')
-def exibir_filme_rota(id):
-
-    return movie_controller.exibe_filme(id)
-
-@app.route('/avaliar-filme', method='POST')
-def avaliar_filme_rota():
-    return movie_controller.avalia_filme()
-
-@app.route("/login", method="GET")
-def login():
-    return template("login")
-
-@app.route("/login", method="POST")
-def saving_login():
-    return user_controller.process_user()
-
+user_controller.setup_routes(app)
 
 @app.route("/logon", method="GET")
 def logon():

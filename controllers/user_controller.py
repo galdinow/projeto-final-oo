@@ -5,10 +5,17 @@ from controllers.base_controller import BaseController
 from bottle import route, run, template, request, redirect, Bottle
 from data_managers import user_manager
 
-class UserController:
+class UserController(BaseController):
     def __init__(self):
         pass
-    
+    def setup_routes(self, app):
+        app.route('/login', method="GET", callback=self.login)
+        app.route('/login', method="POST", callback=self.process_user)
+
+
+
+    def login(self):
+        return self.render("login")
     def process_user(self):
         username = request.forms.get("username")
         email = request.forms.get("email")
