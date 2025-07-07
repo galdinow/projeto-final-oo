@@ -5,12 +5,12 @@ import json
 
 
 def save_movie(movie):
-    with open("data/movies.json", "r") as file:
+    with open("data/movies.json", "r", encoding="utf-8") as file:
         existing_json = json.load(file)
         updated_json = existing_json
         updated_json.append(movie)
-    with open("data/movies.json", "w") as file:
-        json.dump(updated_json, file, indent=4)
+    with open("data/movies.json", "w", encoding="utf-8") as file:
+        json.dump(updated_json, file, indent=4,ensure_ascii=False)
 
 # sera se a funcao ta "magica" demais? com o filepath sendo selecionado sozinho?
 def load_movies():
@@ -38,4 +38,17 @@ def avaliar_filme(id, nota):
             break
     with open("data/movies.json", "w") as file:
         json.dump(filmes, file, indent=4)
+
+
+def calculo_avaliacoes(filme):
+    if not filme:
+        return "Filme não encontrado"
+    if 'avaliacoes' in filme and filme['avaliacoes']:
+        soma_notas = sum(filme['avaliacoes'])
+        num_avaliacoes = len(filme['avaliacoes'])   
+        filme['media_avaliacoes'] = f"{soma_notas / num_avaliacoes:.1f}"
+        filme['num_avaliacoes'] = num_avaliacoes
+    else:
+        filme['media_avaliacoes'] = None
+        filme['num_avaliacoes'] = 0
 
