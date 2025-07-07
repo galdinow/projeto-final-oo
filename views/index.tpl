@@ -60,9 +60,9 @@
       <div class="card" style="width: 100%;">
         <img src="\static\img\howlc.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">filme 1</h5>
-          <p class="card-text">descrição do filme.</p>
-          <a href="/movie" class="btn btn-primary">Ver mais</a>
+          <h5 class="card-title">O Castelo Animado</h5>
+          <p class="card-text">Studio Ghibli</p>
+          <a href="/movie/7142" class="btn btn-primary">Ver mais</a>
         </div>
       </div>
     </div>
@@ -71,9 +71,9 @@
       <div class="card" style="width: 100%;">
         <img src="/static/img/ponyo.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">FIlme 2</h5>
-          <p class="card-text">descrição do filme.</p>
-          <a href="/movie" class="btn btn-primary">Ver mais</a>
+          <h5 class="card-title">Ponyo</h5>
+          <p class="card-text">Studio Ghibli</p>
+          <a href="/movie/1344" class="btn btn-primary">Ver mais</a>
         </div>
       </div>
     </div>
@@ -82,9 +82,9 @@
       <div class="card" style="width: 100%;">
         <img src="/static/img/myntotoro.jpg" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">filme 3</h5>
-          <p class="card-text">descrição do filme.</p>
-          <a href="/movie" class="btn btn-primary">Ver mais</a>
+          <h5 class="card-title">Meu Amigo Totoro</h5>
+          <p class="card-text">Studio Ghibli</p>
+          <a href="/movie/6778" class="btn btn-primary">Ver mais</a>
         </div>
       </div>
     </div>
@@ -129,6 +129,8 @@
                 </div>
             </div>
         </section>
+
+        
         
         
 

@@ -30,7 +30,7 @@
 </head>
 <body>
 
-<div class="container mt-5">
+<div class="container mt-5 pb-5">
     <h2 class="mb-4">Catálogo de Filmes</h2>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-4">
         % for filme in filmes:
