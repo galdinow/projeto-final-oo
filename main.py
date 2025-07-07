@@ -52,7 +52,7 @@ def cadastrar_filme():
 
 @app.route('/listafilmes')
 def listar_filmes():
-    filmes = load_movies()  
+    filmes = load_movies() 
     return template('listafilmes', filmes=filmes)
 
 
