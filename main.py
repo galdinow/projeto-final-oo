@@ -43,8 +43,9 @@ def cadastrar_filme():
     id = random.randint(1000, 9999)
     filme = Movie(id=id, title=title, description=description, director=director, img_url=img_url)
     # passar essa logica para dentro do save_movie/save_user
-    filme_dict = filme
+    filme_dict = filme.to_dict()  # converte para dict
     save_movie(filme_dict)
+
 
     return redirect("/")
 

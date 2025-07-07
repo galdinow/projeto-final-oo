@@ -24,7 +24,7 @@ def get_movie_by_id(id):
     for filme in load_movies():
         if filme["id"] == id:
             return filme
-    return print("deu errado")
+    return None
 
 
 def avaliar_filme(id, nota):
