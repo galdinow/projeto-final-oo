@@ -41,15 +41,16 @@
 
             <!-- Média das avaliações -->
             <div class="mt-3">
-    {% if filme['media_avaliacoes'] is not None %}
-        <h5>Média de avaliações:</h5>
-        <p class="fs-4">
-            {{ filme['media_avaliacoes'] }} ★ ({{ filme['num_avaliacoes'] }} avaliações)
-        </p>
-    {% else %}
-        <p class="text-muted">Este filme ainda não foi avaliado.</p>
-    {% endif %}
-</div>
+                    % if filme['media_avaliacoes'] is not None:
+                        <h5>Média de avaliações:</h5>
+                        <p class="fs-4">
+                            {{ filme['media_avaliacoes'] }} ★ ({{ filme['num_avaliacoes'] }} avaliações)
+                        </p>
+                    % else:
+                        <p class="text-muted">Este filme ainda não foi avaliado.</p>
+                    % end
+            </div>
+
         </div>
 
         
