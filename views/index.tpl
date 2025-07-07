@@ -30,7 +30,9 @@
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="/login">Entrar</a></li>
                         <li class="nav-item"><a class="nav-link" href="/cadastrofilme">Cadastrar um Filme</a></li>
+                        <li class="nav-item"><a class="nav-link" href=/listafilmes">Filmes</a></li>
                         <li class="nav-item"><a class="nav-link" href="perfil.tpl">Perfil</a></li>
+                       
                     </ul>
                 </div>
             </div>

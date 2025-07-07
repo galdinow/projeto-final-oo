@@ -5,6 +5,7 @@ import random
 from data_managers.movie_manager import get_movie_by_id
 from data_managers.movie_manager import save_movie
 from bottle import static_file
+from data_managers.movie_manager import load_movies
 
 # Quando tudo estiver funcionando:
 # organizar as rotas dentro das controllers
@@ -48,6 +49,12 @@ def cadastrar_filme():
 
 
     return redirect("/")
+
+@app.route('/listafilmes')
+def listar_filmes():
+    filmes = load_movies()  
+    return template('listafilmes', filmes=filmes)
+
 
 @app.route('/movie/<id:int>')
 def exibir_filme(id):
