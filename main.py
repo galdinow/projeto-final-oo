@@ -6,6 +6,7 @@ from data_managers.movie_manager import get_movie_by_id
 from data_managers.movie_manager import save_movie
 from bottle import static_file
 from data_managers.movie_manager import load_movies
+from data_managers.movie_manager import avaliar_filme
 
 # Quando tudo estiver funcionando:
 # organizar as rotas dentro das controllers
@@ -61,23 +62,23 @@ def exibir_filme(id):
     filme = get_movie_by_id(id)
     if not filme:
         return "Filme não encontrado"
-
-    # --- INÍCIO DA CORREÇÃO ---
-    # Verifica se o filme tem avaliações e se a lista não está vazia
     if 'avaliacoes' in filme and filme['avaliacoes']:
         soma_notas = sum(filme['avaliacoes'])
-        num_avaliacoes = len(filme['avaliacoes'])
-        # Adiciona os resultados calculados ao dicionário 'filme'
+        num_avaliacoes = len(filme['avaliacoes'])   
         filme['media_avaliacoes'] = f"{soma_notas / num_avaliacoes:.1f}"
         filme['num_avaliacoes'] = num_avaliacoes
     else:
-        # Adiciona valores padrão se não houver avaliações
         filme['media_avaliacoes'] = None
         filme['num_avaliacoes'] = 0
-    # --- FIM DA CORREÇÃO ---
-
-    # Agora o template 'movie' recebe o dicionário 'filme' já com os novos dados
     return template('movie', filme=filme)
+
+@app.route('/avaliar-filme', method='POST')
+def avaliar_filme_rota():
+    filme_id = int(request.forms.get('filme_id'))
+    nota = int(request.forms.get('nota'))
+    avaliar_filme(filme_id, nota)  
+    return redirect(f'/movie/{filme_id}')
+
 
 user_controller = UserController()
 #talvez mudar o nome dps
