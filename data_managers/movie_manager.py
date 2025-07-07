@@ -14,7 +14,7 @@ def save_movie(movie):
 
 # sera se a funcao ta "magica" demais? com o filepath sendo selecionado sozinho?
 def load_movies():
-    with open("data/movies.json", "r") as file:
+    with open("data/movies.json", "r", encoding="utf-8") as file:
         movie_list = json.load(file)
         return movie_list
 
