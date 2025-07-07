@@ -1,5 +1,6 @@
 from bottle import route, run, template, request, redirect, Bottle
 from controllers.user_controller import UserController
+from controllers.movie_controller import MovieController
 from models.movie import Movie
 import random
 from data_managers.movie_manager import get_movie_by_id
@@ -8,19 +9,10 @@ from bottle import static_file
 from data_managers.movie_manager import load_movies
 from data_managers.movie_manager import avaliar_filme
 
-# Quando tudo estiver funcionando:
-# organizar as rotas dentro das controllers
-# fazer autenticacao de usuario
-# separar o css de dentro dos templates
-# usar o base.tpl em todos os templates
-# ver o quao nescessario eh criar uma instancia do bottle
-# apagar os templates nao utilizados
-# padronizar o codigo em uma unica lingua
-# conferir se tudo esta onde deveria estar(base controller tbm)
-# fazer diagrama de classes
-# verificar os 4 pilares de oo
-# ver o quao viavel eh fazer um hash da senha
 app = Bottle()
+movie_controller = MovieController()
+user_controller = UserController()
+
 @app.route('/static/<filepath:path>')
 def server_static(filepath):
     return static_file(filepath, root='./static')
@@ -36,20 +28,7 @@ def exibir_formulario_cadastro():
 
 @app.route('/cadastrofilme', method='POST')
 def cadastrar_filme():
-    title = request.forms.get('title')
-    description = request.forms.get('description')
-    director = request.forms.get('director')
-    img_url = request.forms.get('img_url')
-
-
-    id = random.randint(1000, 9999)
-    filme = Movie(id=id, title=title, description=description, director=director, img_url=img_url)
-    # passar essa logica para dentro do save_movie/save_user
-    filme_dict = filme.to_dict()  # converte para dict
-    save_movie(filme_dict)
-
-
-    return redirect("/")
+    return movie_controller.process_movie()
 
 @app.route('/listafilmes')
 def listar_filmes():
@@ -58,37 +37,21 @@ def listar_filmes():
 
 
 @app.route('/movie/<id:int>')
-def exibir_filme(id):
-    filme = get_movie_by_id(id)
-    if not filme:
-        return "Filme não encontrado"
-    if 'avaliacoes' in filme and filme['avaliacoes']:
-        soma_notas = sum(filme['avaliacoes'])
-        num_avaliacoes = len(filme['avaliacoes'])   
-        filme['media_avaliacoes'] = f"{soma_notas / num_avaliacoes:.1f}"
-        filme['num_avaliacoes'] = num_avaliacoes
-    else:
-        filme['media_avaliacoes'] = None
-        filme['num_avaliacoes'] = 0
-    return template('movie', filme=filme)
+def exibir_filme_rota(id):
+
+    return movie_controller.exibe_filme(id)
 
 @app.route('/avaliar-filme', method='POST')
 def avaliar_filme_rota():
-    filme_id = int(request.forms.get('filme_id'))
-    nota = int(request.forms.get('nota'))
-    avaliar_filme(filme_id, nota)  
-    return redirect(f'/movie/{filme_id}')
+    return movie_controller.avalia_filme()
 
-
-user_controller = UserController()
-#talvez mudar o nome dps
 @app.route("/login", method="GET")
 def login():
     return template("login")
 
 @app.route("/login", method="POST")
 def saving_login():
-    return user_controller.process()
+    return user_controller.process_user()
 
 
 @app.route("/logon", method="GET")
@@ -100,9 +63,7 @@ def logon():
 def checking_logon():
     if user_controller.validating_user():
         return redirect("/")
-    #ver como faz pra aparecer a mensagem de erro
     return template("logon")
-# pra q serve setup routing?
 
 
 run(host='localhost', port=8080, debug=True, reloader=True, app=app)
