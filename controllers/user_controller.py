@@ -11,8 +11,10 @@ class UserController(BaseController):
     def setup_routes(self, app):
         app.route('/login', method="GET", callback=self.login)
         app.route('/login', method="POST", callback=self.process_user)
+        app.route('/logon', method="GET", callback=self.logon)
 
-
+    def logon(self):
+        return self.render("logon")
 
     def login(self):
         return self.render("login")

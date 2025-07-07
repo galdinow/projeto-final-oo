@@ -25,11 +25,6 @@ movie_controller.setup_routes(app)
 
 user_controller.setup_routes(app)
 
-@app.route("/logon", method="GET")
-def logon():
-    return template("logon")
-
-
 @app.route("/logon", method="post")
 def checking_logon():
     if user_controller.validating_user():
