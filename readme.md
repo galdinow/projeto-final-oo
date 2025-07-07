@@ -12,11 +12,11 @@ A aplicação foi desenvolvida seguindo o padrão arquitetural **MVC (Model-View
 * **Cadastro de Usuários:** Permite que novos usuários se registrem na plataforma com nome de usuário, email e senha.
 * **Login de Usuários:** Usuários cadastrados podem autenticar-se para acessar as funcionalidades exclusivas da aplicação. (Atualmente, a autenticação é gerenciada no lado do cliente via `localStorage` devido a restrições de tempo, com consciência dos riscos de segurança para um ambiente de produção).
 * **Gestão de Filmes:**
-    * **Cadastro de Filmes:** Usuários logados podem adicionar novos filmes à sua coleção, registrando informações como título, descrição, diretor e URL de pôster.
-    * **Visualização de Filmes:** Exibição detalhada de cada filme cadastrado.
-    * (Se você implementou) **Listagem de Filmes:** Listagem de todos os filmes na coleção do usuário.
-    * (Se você implementou) **Edição de Filmes:** Funcionalidade para alterar os detalhes de um filme já cadastrado.
-    * (Se você implementou) **Exclusão de Filmes:** Permite remover filmes da coleção.
+    *  Cadastro de Filmes:** Usuários logados podem adicionar novos filmes à sua coleção, registrando informações como título, descrição, diretor e URL de pôster.
+    *  Visualização de Filmes:** Exibição detalhada de cada filme cadastrado.
+    *  Listagem de Filmes:** Listagem de todos os filmes na coleção do usuário.
+    *  Edição de Filmes:** Funcionalidade para alterar os detalhes de um filme já cadastrado.
+    *  *Exclusão de Filmes:** Permite remover filmes da coleção.
 
 ### Pilares da Orientação a Objetos:
 
@@ -40,7 +40,7 @@ Siga os passos abaixo para configurar e rodar a aplicação em seu ambiente loca
 
 1.  **Clone o Repositório:**
     ```bash
-    git clone [LINK_DO_SEU_REPOSITORIO]
+    git clone [LINK_DO_REPOSITORIO]
     cd [NOME_DA_PASTA_DO_PROJETO]
     ```
 
@@ -55,8 +55,6 @@ Siga os passos abaixo para configurar e rodar a aplicação em seu ambiente loca
     ```bash
     pip install -r requirements.txt
     ```
-    *(Lembre-se de criar o arquivo `requirements.txt` usando `pip freeze > requirements.txt` no seu terminal, dentro do ambiente virtual ativado, antes de enviar o projeto.)*
-
 4.  **Execute a Aplicação:**
     ```bash
     python3 main.py
