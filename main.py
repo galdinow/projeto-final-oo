@@ -1,13 +1,8 @@
 from bottle import route, run, template, request, redirect, Bottle
 from controllers.user_controller import UserController
 from controllers.movie_controller import MovieController
-from models.movie import Movie
-import random
-from data_managers.movie_manager import get_movie_by_id
-from data_managers.movie_manager import save_movie
 from bottle import static_file
-from data_managers.movie_manager import load_movies
-from data_managers.movie_manager import avaliar_filme
+
 
 app = Bottle()
 movie_controller = MovieController()

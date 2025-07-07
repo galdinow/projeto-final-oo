@@ -32,11 +32,13 @@ class MovieController(BaseController):
         return redirect("/")
     
     def exibe_filme(self, id):
+        from data_managers.movie_manager import calculo_avaliacoes
         filme = get_movie_by_id(id)
         calculo_avaliacoes(filme)
         return  self.render('movie', filme=filme)
     
     def avalia_filme(self):
+        from data_managers.movie_manager import avaliar_filme
         filme_id = int(request.forms.get('filme_id'))
         nota = int(request.forms.get('nota'))
         avaliar_filme(filme_id, nota)  
